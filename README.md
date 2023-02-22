@@ -31,7 +31,7 @@
 
 **Картинка из проекта**
 
-![WebPack](./public/logo192.png)
+![REACT](./public/logo192.png)
 
 ## Ссылка:
 
