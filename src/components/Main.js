@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { api } from "../utils/Api";
-import Cards from "./Card";
+import Card from "./Card";
 
 export default function Main({
   onEditProfile,
@@ -51,7 +51,7 @@ export default function Main({
         ></button>
       </section>
 
-      <Cards cards={cards} onCardClick={onCardClick} />
+      <Card cards={cards} onCardClick={onCardClick} />
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Cards({ cards, onCardClick }) {
+export default function Card({ cards, onCardClick }) {
   return (
     <section className="card" aria-label="Карточки">
       <ul className="card__items">
