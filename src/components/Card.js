@@ -1,11 +1,10 @@
 import React from "react";
 
-export default function Card({ cards, onCardClick }) {
+export default function Card({ obj, onCardClick }) {
   return (
-    <section className="card" aria-label="Карточки">
-      <ul className="card__items">
-        {cards.map((obj) => (
-          <li className="card__item" key={obj._id}>
+
+
+          <li className="card__item">
             <img
               className="card__image"
               src={obj.link}
@@ -25,8 +24,7 @@ export default function Card({ cards, onCardClick }) {
             </div>
             <button type="button" className="card__button-delete btn"></button>
           </li>
-        ))}
-      </ul>
-    </section>
+
+
   );
 }

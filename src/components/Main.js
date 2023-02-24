@@ -8,9 +8,9 @@ export default function Main({
   onEditAvatar,
   onCardClick,
 }) {
-  const [userName, setUserName] = useState();
-  const [userDescription, setUserDescription] = useState();
-  const [userAvatar, setUserAvatar] = useState();
+  const [userName, setUserName] = useState("");
+  const [userDescription, setUserDescription] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
   const [cards, setCards] = useState([]);
 
   useEffect(() => {
@@ -50,8 +50,13 @@ export default function Main({
           onClick={onAddPlace}
         ></button>
       </section>
-
-      <Card cards={cards} onCardClick={onCardClick} />
+      <section className="card" aria-label="Карточки">
+        <ul className="card__items">
+          {cards.map((obj) => (
+            <Card key={obj._id} obj={obj} onCardClick={onCardClick} />
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
