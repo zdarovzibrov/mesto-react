@@ -34,8 +34,8 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        name: obj.userName,
-        about: obj.userWork,
+        name: obj.name,
+        about: obj.about,
       }),
     });
   }
@@ -45,8 +45,8 @@ class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: obj.cardName,
-        link: obj.cardLink,
+        name: obj.name,
+        link: obj.link,
       }),
     });
   }
@@ -58,18 +58,18 @@ class Api {
     });
   }
 
-  likeCard(id) {
-    return this._request(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "PUT",
-      headers: this._headers,
-    });
-  }
-
-  dislikeCard(id) {
-    return this._request(`${this._baseUrl}/cards/${id}/likes`, {
-      method: "DELETE",
-      headers: this._headers,
-    });
+  changeLikeCardStatus(cardId, isLiked) {
+    if (isLiked) {
+      return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: "PUT",
+        headers: this._headers,
+      });
+    } else {
+      return this._request(`${this._baseUrl}/cards/${cardId}/likes`, {
+        method: "DELETE",
+        headers: this._headers,
+      });
+    }
   }
 
   setAvatar(obj) {
@@ -77,7 +77,7 @@ class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar: obj.cardLink,
+        avatar: obj.avatar,
       }),
     });
   }
