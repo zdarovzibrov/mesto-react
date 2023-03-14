@@ -17,7 +17,6 @@ export default function PopupWithForm({
           className="form form_type_new-card"
           name={name}
           onSubmit={onSubmit}
-          noValidate
         >
           {children}
           <button className="form__button" type="submit">

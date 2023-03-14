@@ -6,12 +6,19 @@ export default function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
 
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
 
   useEffect(() => {
-    setName(currentUser.name);
-    setDescription(currentUser.about);
-  }, [currentUser]);
+    if (currentUser) {
+      setName(currentUser.name);
+      setDescription(currentUser.about);
+    }
+
+    if (!isOpen) {
+      setName("");
+      setDescription("");
+    }
+  }, [currentUser, isOpen]);
 
   function handleSubmit(e) {
     e.preventDefault();
